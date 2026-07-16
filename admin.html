@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Secure administrator dashboard for Kasi Tech Hub registrations.">
+  <title>Admin Dashboard | Kasi Tech Hub</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="Kasi Tech Hub Home">
+        <img src="images/logo.png" alt="Kasi Tech Hub logo" class="logo-img" width="44" height="44">
+        <span class="logo-text">
+          <span class="logo-name">Kasi Tech Hub</span>
+          <span class="logo-tag">Admin Dashboard</span>
+        </span>
+      </a>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <a href="index.html" class="btn btn-secondary btn-sm">← Website</a>
+        <button type="button" id="logout-btn" class="btn btn-outline-dark btn-sm" style="display:none;">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Login -->
+    <section class="admin-login" id="admin-login">
+      <div class="login-card">
+        <div style="text-align:center;margin-bottom:0.5rem;">
+          <img src="images/logo.png" alt="" width="56" height="56" style="margin:0 auto 0.75rem;border-radius:12px;">
+        </div>
+        <h1>Admin Login</h1>
+        <p>Enter the administrator password to manage registrations. This page is not publicly listed.</p>
+        <div id="login-error" class="alert alert-error" role="alert"></div>
+        <form id="login-form" autocomplete="off">
+          <div class="form-group" style="margin-bottom:1.25rem;">
+            <label for="admin_password">Password</label>
+            <input type="password" id="admin_password" name="password" required placeholder="Admin password" autocomplete="current-password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Sign in</button>
+        </form>
+        <p style="font-size:0.78rem;color:var(--gray-500);margin-top:1.25rem;text-align:center;">
+          Change the default password in <code>js/email-config.js</code> before going live.
+          For production, migrate to Supabase Auth or a secure backend.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="admin-panel" id="admin-panel">
+      <div class="container">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+          <div>
+            <h1 style="font-size:1.6rem;margin-bottom:0.25rem;">Registrations</h1>
+            <p style="margin:0;color:var(--gray-500);font-size:0.95rem;">View, filter, update, and export training registrations.</p>
+          </div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button type="button" class="btn btn-primary btn-sm" id="export-csv-btn">Export CSV</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="refresh-btn">Refresh</button>
+          </div>
+        </div>
+
+        <div class="admin-stats" id="admin-stats">
+          <div class="admin-stat-card"><strong id="stat-total">0</strong><span>Total</span></div>
+          <div class="admin-stat-card"><strong id="stat-new">0</strong><span>New</span></div>
+          <div class="admin-stat-card"><strong id="stat-contacted">0</strong><span>Contacted</span></div>
+          <div class="admin-stat-card"><strong id="stat-accepted">0</strong><span>Accepted</span></div>
+        </div>
+
+        <div class="admin-toolbar">
+          <input type="search" id="search-input" placeholder="Search name, email, phone, reference…" aria-label="Search registrations">
+          <select id="filter-programme" aria-label="Filter by programme">
+            <option value="">All programmes</option>
+            <option value="Computer Basics">Computer Basics</option>
+            <option value="Microsoft Word">Microsoft Word</option>
+            <option value="Microsoft Excel">Microsoft Excel</option>
+            <option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
+            <option value="Internet and Email Skills">Internet and Email Skills</option>
+            <option value="Job Readiness">Job Readiness</option>
+            <option value="Website Development">Website Development</option>
+            <option value="IT Support Basics">IT Support Basics</option>
+          </select>
+          <select id="filter-status" aria-label="Filter by status">
+            <option value="">All statuses</option>
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <input type="date" id="filter-date" aria-label="Filter by registration date">
+        </div>
+
+        <div class="table-wrap">
+          <table class="admin-table" id="regs-table">
+            <thead>
+              <tr>
+                <th>Reference</th>
+                <th>Name</th>
+                <th>Programme</th>
+                <th>Contact</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="regs-tbody">
+            </tbody>
+          </table>
+          <div class="empty-state" id="empty-state" style="display:none;">
+            <strong>No registrations found</strong>
+            <p>Registrations submitted on this browser will appear here. For multi-device access, connect Supabase (see README).</p>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;" class="form-card">
+          <h3 style="margin-bottom:0.75rem;">Registrations by programme</h3>
+          <div id="programme-breakdown" style="display:grid;gap:0.5rem;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail modal -->
+  <div class="modal-overlay" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-title">Registration details</h3>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer">
+        <label for="status-select" class="sr-only">Update status</label>
+        <select id="status-select" style="padding:0.55rem 0.9rem;border-radius:10px;border:1.5px solid var(--gray-300);">
+          <option value="New">New</option>
+          <option value="Contacted">Contacted</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Completed">Completed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+        <button type="button" class="btn btn-primary btn-sm" id="save-status-btn">Update status</button>
+        <button type="button" class="btn btn-outline-dark btn-sm" id="delete-reg-btn" style="color:#b91c1c;border-color:#fca5a5;">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/email-config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    const STORAGE_KEY = "kth_registrations";
+    const AUTH_KEY = "kth_admin_auth";
+    let currentId = null;
+
+    const loginSection = document.getElementById("admin-login");
+    const panel = document.getElementById("admin-panel");
+    const logoutBtn = document.getElementById("logout-btn");
+    const tbody = document.getElementById("regs-tbody");
+    const emptyState = document.getElementById("empty-state");
+    const modal = document.getElementById("detail-modal");
+
+    function getRegs() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveRegs(list) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+
+    function isAuthed() {
+      return sessionStorage.getItem(AUTH_KEY) === "1";
+    }
+
+    function setAuth(on) {
+      if (on) sessionStorage.setItem(AUTH_KEY, "1");
+      else sessionStorage.removeItem(AUTH_KEY);
+    }
+
+    function showDashboard() {
+      loginSection.style.display = "none";
+      panel.classList.add("active");
+      logoutBtn.style.display = "inline-flex";
+      render();
+    }
+
+    function showLogin() {
+      loginSection.style.display = "flex";
+      panel.classList.remove("active");
+      logoutBtn.style.display = "none";
+    }
+
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const pw = document.getElementById("admin_password").value;
+      const err = document.getElementById("login-error");
+      const expected = typeof ADMIN_PASSWORD !== "undefined" ? ADMIN_PASSWORD : "KasiTechHub2026!";
+
+      if (pw === expected) {
+        setAuth(true);
+        err.classList.remove("show");
+        showDashboard();
+      } else {
+        err.innerHTML = "<strong>Incorrect password.</strong> Please try again.";
+        err.classList.add("show");
+      }
+    });
+
+    logoutBtn.addEventListener("click", function () {
+      setAuth(false);
+      showLogin();
+    });
+
+    function escapeHtml(str) {
+      const d = document.createElement("div");
+      d.textContent = str == null ? "" : String(str);
+      return d.innerHTML;
+    }
+
+    function statusClass(status) {
+      return "status-" + String(status || "new").toLowerCase();
+    }
+
+    function getFiltered() {
+      const q = (document.getElementById("search-input").value || "").toLowerCase().trim();
+      const prog = document.getElementById("filter-programme").value;
+      const status = document.getElementById("filter-status").value;
+      const date = document.getElementById("filter-date").value;
+
+      return getRegs().filter(function (r) {
+        if (prog && r.selected_programme !== prog) return false;
+        if (status && r.registration_status !== status) return false;
+        if (date) {
+          const created = (r.created_at || "").slice(0, 10);
+          if (created !== date) return false;
+        }
+        if (q) {
+          const hay = [
+            r.reference_number,
+            r.first_name,
+            r.surname,
+            r.email,
+            r.mobile_number,
+            r.whatsapp_number,
+            r.residential_area,
+            r.selected_programme
+          ]
+            .join(" ")
+            .toLowerCase();
+          if (hay.indexOf(q) === -1) return false;
+        }
+        return true;
+      });
+    }
+
+    function renderStats(all) {
+      document.getElementById("stat-total").textContent = all.length;
+      document.getElementById("stat-new").textContent = all.filter(function (r) {
+        return r.registration_status === "New";
+      }).length;
+      document.getElementById("stat-contacted").textContent = all.filter(function (r) {
+        return r.registration_status === "Contacted";
+      }).length;
+      document.getElementById("stat-accepted").textContent = all.filter(function (r) {
+        return r.registration_status === "Accepted";
+      }).length;
+
+      const byProg = {};
+      all.forEach(function (r) {
+        const p = r.selected_programme || "Unknown";
+        byProg[p] = (byProg[p] || 0) + 1;
+      });
+      const box = document.getElementById("programme-breakdown");
+      const keys = Object.keys(byProg).sort();
+      if (!keys.length) {
+        box.innerHTML = "<p style='color:var(--gray-500);margin:0;'>No data yet.</p>";
+        return;
+      }
+      box.innerHTML = keys
+        .map(function (k) {
+          return (
+            '<div style="display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid var(--gray-100);font-size:0.92rem;">' +
+            "<span>" +
+            escapeHtml(k) +
+            '</span><strong style="color:var(--blue);">' +
+            byProg[k] +
+            "</strong></div>"
+          );
+        })
+        .join("");
+    }
+
+    function render() {
+      const all = getRegs();
+      renderStats(all);
+      const list = getFiltered();
+      tbody.innerHTML = "";
+
+      if (!list.length) {
+        emptyState.style.display = "block";
+        document.getElementById("regs-table").style.display = list.length ? "table" : all.length ? "table" : "none";
+        if (!all.length) {
+          document.querySelector(".table-wrap table").style.display = "none";
+        } else {
+          document.querySelector(".table-wrap table").style.display = "table";
+          // show empty filtered message in tbody
+          tbody.innerHTML =
+            '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--gray-500);">No registrations match your filters.</td></tr>';
+          emptyState.style.display = "none";
+        }
+        return;
+      }
+
+      emptyState.style.display = "none";
+      document.querySelector(".table-wrap table").style.display = "table";
+
+      list.forEach(function (r) {
+        const tr = document.createElement("tr");
+        const dateStr = r.created_at
+          ? new Date(r.created_at).toLocaleDateString("en-ZA", { dateStyle: "medium" })
+          : "—";
+        tr.innerHTML =
+          "<td><strong>" +
+          escapeHtml(r.reference_number) +
+          "</strong></td>" +
+          "<td>" +
+          escapeHtml(r.first_name + " " + r.surname) +
+          "</td>" +
+          "<td>" +
+          escapeHtml(r.selected_programme) +
+          "</td>" +
+          "<td>" +
+          escapeHtml(r.mobile_number) +
+          "<br><small>" +
+          escapeHtml(r.email) +
+          "</small></td>" +
+          "<td>" +
+          escapeHtml(dateStr) +
+          "</td>" +
+          '<td><span class="status-badge ' +
+          statusClass(r.registration_status) +
+          '">' +
+          escapeHtml(r.registration_status || "New") +
+          "</span></td>" +
+          '<td><button type="button" class="btn-icon" data-view="' +
+          escapeHtml(r.id) +
+          '" title="View details" aria-label="View">👁</button></td>';
+        tbody.appendChild(tr);
+      });
+
+      tbody.querySelectorAll("[data-view]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          openDetail(btn.getAttribute("data-view"));
+        });
+      });
+    }
+
+    function openDetail(id) {
+      const r = getRegs().find(function (x) {
+        return x.id === id;
+      });
+      if (!r) return;
+      currentId = id;
+      document.getElementById("status-select").value = r.registration_status || "New";
+      document.getElementById("modal-title").textContent = r.reference_number || "Registration";
+
+      const rows = [
+        ["Reference", r.reference_number],
+        ["Registered", r.created_at_display || r.created_at],
+        ["First name", r.first_name],
+        ["Surname", r.surname],
+        ["Email", r.email],
+        ["Mobile", r.mobile_number],
+        ["WhatsApp", r.whatsapp_number],
+        ["Age group", r.age_group],
+        ["Gender", r.gender || "—"],
+        ["Residential area", r.residential_area],
+        ["Qualification", r.highest_qualification || "—"],
+        ["Employment", r.employment_status],
+        ["Programme", r.selected_programme],
+        ["Learning method", r.learning_method],
+        ["Preferred date", r.preferred_date || "—"],
+        ["Preferred time", r.preferred_time || "—"],
+        ["Experience", r.experience_level],
+        ["Accessibility", r.accessibility_requirements || "None"],
+        ["Message", r.additional_message || "—"],
+        ["Consent", r.consent ? "Yes" : "No"],
+        ["Status", r.registration_status]
+      ];
+
+      document.getElementById("modal-body").innerHTML =
+        "<dl>" +
+        rows
+          .map(function (pair) {
+            return (
+              '<div class="detail-row"><dt>' +
+              escapeHtml(pair[0]) +
+              "</dt><dd>" +
+              escapeHtml(pair[1]) +
+              "</dd></div>"
+            );
+          })
+          .join("") +
+        "</dl>";
+
+      modal.classList.add("open");
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      currentId = null;
+    }
+
+    document.getElementById("modal-close").addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeModal();
+    });
+
+    document.getElementById("save-status-btn").addEventListener("click", function () {
+      if (!currentId) return;
+      const list = getRegs();
+      const idx = list.findIndex(function (x) {
+        return x.id === currentId;
+      });
+      if (idx === -1) return;
+      list[idx].registration_status = document.getElementById("status-select").value;
+      saveRegs(list);
+      render();
+      openDetail(currentId);
+    });
+
+    document.getElementById("delete-reg-btn").addEventListener("click", function () {
+      if (!currentId) return;
+      if (!confirm("Permanently delete this registration? This cannot be undone.")) return;
+      const list = getRegs().filter(function (x) {
+        return x.id !== currentId;
+      });
+      saveRegs(list);
+      closeModal();
+      render();
+    });
+
+    ["search-input", "filter-programme", "filter-status", "filter-date"].forEach(function (id) {
+      document.getElementById(id).addEventListener("input", render);
+      document.getElementById(id).addEventListener("change", render);
+    });
+
+    document.getElementById("refresh-btn").addEventListener("click", render);
+
+    document.getElementById("export-csv-btn").addEventListener("click", function () {
+      const list = getFiltered();
+      if (!list.length) {
+        alert("No registrations to export.");
+        return;
+      }
+      const headers = [
+        "reference_number",
+        "first_name",
+        "surname",
+        "email",
+        "mobile_number",
+        "whatsapp_number",
+        "age_group",
+        "gender",
+        "residential_area",
+        "highest_qualification",
+        "employment_status",
+        "selected_programme",
+        "learning_method",
+        "preferred_date",
+        "preferred_time",
+        "experience_level",
+        "accessibility_requirements",
+        "additional_message",
+        "registration_status",
+        "created_at"
+      ];
+      function csvEscape(v) {
+        const s = v == null ? "" : String(v);
+        if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+        return s;
+      }
+      const lines = [headers.join(",")];
+      list.forEach(function (r) {
+        lines.push(
+          headers
+            .map(function (h) {
+              return csvEscape(r[h]);
+            })
+            .join(",")
+        );
+      });
+      const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "kasi-tech-hub-registrations-" + new Date().toISOString().slice(0, 10) + ".csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Init
+    if (isAuthed()) showDashboard();
+    else showLogin();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for digital skills training programmes at Kasi Tech Hub in Refilwe, Cullinan, Gauteng.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thabang97seloane.github.io/KASI-TECH-HUB/registration.html">
+  <meta property="og:title" content="Register for Training | Kasi Tech Hub">
+  <meta property="og:description" content="Register for computer skills, Microsoft Office, job readiness, website development, and more.">
+  <meta property="og:url" content="https://thabang97seloane.github.io/KASI-TECH-HUB/registration.html">
+  <title>Register for Training | Kasi Tech Hub</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="Kasi Tech Hub Home">
+        <img src="images/logo.png" alt="Kasi Tech Hub logo" class="logo-img" width="44" height="44">
+        <span class="logo-text">
+          <span class="logo-name">Kasi Tech Hub</span>
+          <span class="logo-tag">Skills That Open Doors</span>
+        </span>
+      </a>
+      <nav class="nav-menu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#programmes">Programmes</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#why-us">Why Choose Us</a>
+        <a href="registration.html" class="active">Registration</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="#registration" class="btn btn-primary btn-sm nav-cta">Register Now</a>
+      <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#programmes">Programmes</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#why-us">Why Choose Us</a>
+      <a href="registration.html" class="active">Registration</a>
+      <a href="contact.html">Contact</a>
+      <a href="#registration" class="btn btn-primary">Register Now</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Registration</span>
+        </div>
+        <h1>Register for Training</h1>
+        <p>Empowering Communities Through Digital Skills — complete the form and we will contact you with next steps.</p>
+      </div>
+    </section>
+
+    <section class="section" id="registration">
+      <div class="container">
+        <div class="form-card" style="max-width:820px;margin:0 auto;">
+          <div id="reg-success" class="alert alert-success" role="status" aria-live="polite"></div>
+          <div id="reg-error" class="alert alert-error" role="alert" aria-live="assertive"></div>
+
+          <form id="registration-form" novalidate>
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row cols-2">
+                <div class="form-group">
+                  <label for="first_name">Full name <span class="req">*</span></label>
+                  <input type="text" id="first_name" name="first_name" required autocomplete="given-name" placeholder="e.g. Thabo">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="surname">Surname <span class="req">*</span></label>
+                  <input type="text" id="surname" name="surname" required autocomplete="family-name" placeholder="e.g. Mokoena">
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row cols-2">
+                <div class="form-group">
+                  <label for="email">Email address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" required autocomplete="email" placeholder="name@example.com">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="mobile_number">Mobile number <span class="req">*</span></label>
+                  <input type="tel" id="mobile_number" name="mobile_number" required autocomplete="tel" placeholder="079 000 0000">
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row cols-2">
+                <div class="form-group">
+                  <label for="whatsapp_number">WhatsApp number <span class="req">*</span></label>
+                  <input type="tel" id="whatsapp_number" name="whatsapp_number" required placeholder="079 000 0000">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="age_group">Age group <span class="req">*</span></label>
+                  <select id="age_group" name="age_group" required>
+                    <option value="">Select age group</option>
+                    <option value="Under 18">Under 18</option>
+                    <option value="18–24">18–24</option>
+                    <option value="25–34">25–34</option>
+                    <option value="35–44">35–44</option>
+                    <option value="45 and above">45 and above</option>
+                  </select>
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row cols-2">
+                <div class="form-group">
+                  <label for="gender">Gender <span style="font-weight:400;color:var(--gray-500)">(optional)</span></label>
+                  <select id="gender" name="gender">
+                    <option value="">Prefer not to say</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="residential_area">Residential area <span class="req">*</span></label>
+                  <input type="text" id="residential_area" name="residential_area" required placeholder="e.g. Refilwe, Cullinan">
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row cols-2">
+                <div class="form-group">
+                  <label for="highest_qualification">Highest qualification</label>
+                  <input type="text" id="highest_qualification" name="highest_qualification" placeholder="e.g. Matric, NQF Level 4">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="employment_status">Employment status <span class="req">*</span></label>
+                  <select id="employment_status" name="employment_status" required>
+                    <option value="">Select status</option>
+                    <option value="Student">Student</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Self-employed">Self-employed</option>
+                    <option value="Business owner">Business owner</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="selected_programme">Selected programme <span class="req">*</span></label>
+                <select id="selected_programme" name="selected_programme" required>
+                  <option value="">Choose a programme</option>
+                  <option value="Computer Basics">Computer Basics</option>
+                  <option value="Microsoft Word">Microsoft Word</option>
+                  <option value="Microsoft Excel">Microsoft Excel</option>
+                  <option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
+                  <option value="Internet and Email Skills">Internet and Email Skills</option>
+                  <option value="Job Readiness">Job Readiness</option>
+                  <option value="Website Development">Website Development</option>
+                  <option value="IT Support Basics">IT Support Basics</option>
+                </select>
+                <span class="field-error"></span>
+              </div>
+
+              <div class="form-row cols-3">
+                <div class="form-group">
+                  <label for="learning_method">Preferred learning method <span class="req">*</span></label>
+                  <select id="learning_method" name="learning_method" required>
+                    <option value="">Select method</option>
+                    <option value="In-person training">In-person training</option>
+                    <option value="Online training">Online training</option>
+                    <option value="Hybrid training">Hybrid training</option>
+                  </select>
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="preferred_date">Preferred training date</label>
+                  <input type="date" id="preferred_date" name="preferred_date">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="preferred_time">Preferred training time</label>
+                  <select id="preferred_time" name="preferred_time">
+                    <option value="">Select time</option>
+                    <option value="Morning (08:00–12:00)">Morning (08:00–12:00)</option>
+                    <option value="Afternoon (12:00–16:00)">Afternoon (12:00–16:00)</option>
+                    <option value="Evening (16:00–19:00)">Evening (16:00–19:00)</option>
+                    <option value="Flexible / Any">Flexible / Any</option>
+                  </select>
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="experience_level">Computer experience level <span class="req">*</span></label>
+                <select id="experience_level" name="experience_level" required>
+                  <option value="">Select level</option>
+                  <option value="Complete beginner">Complete beginner</option>
+                  <option value="Basic knowledge">Basic knowledge</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                </select>
+                <span class="field-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="accessibility_requirements">Accessibility or disability support requirements</label>
+                <textarea id="accessibility_requirements" name="accessibility_requirements" placeholder="Tell us how we can support you (optional)"></textarea>
+                <span class="field-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="additional_message">Message or additional information</label>
+                <textarea id="additional_message" name="additional_message" placeholder="Any questions or extra details?"></textarea>
+                <span class="field-error"></span>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="consent" name="consent" required>
+                <div>
+                  <label for="consent">I consent to Kasi Tech Hub collecting and using my information to process my registration and communicate with me about training and services. <span class="req">*</span></label>
+                  <span class="field-error"></span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Registration</button>
+              </div>
+              <p style="font-size:0.8rem;color:var(--gray-500);text-align:center;margin-top:0.75rem;">
+                Your information is protected under POPIA. See our <a href="privacy.html">Privacy Policy</a>.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding:1.5rem 0;">
+        <p>© <span data-year>2026</span> Kasi Tech Hub (PTY) LTD. All rights reserved.</p>
+        <p class="footer-credit">Designed and managed by Thabang Seloane.</p>
+        <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="index.html">Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float"
+     href="https://wa.me/27799491794?text=Hello%20Kasi%20Tech%20Hub.%20I%20would%20like%20more%20information%20about%20your%20training%20programmes."
+     target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/email-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/registration.js"></script>
+</body>
+</html>

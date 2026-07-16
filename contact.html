@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Kasi Tech Hub in Refilwe, Cullinan, Gauteng. Phone, WhatsApp, email, and contact form.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thabang97seloane.github.io/KASI-TECH-HUB/contact.html">
+  <title>Contact Us | Kasi Tech Hub</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo" aria-label="Kasi Tech Hub Home">
+        <img src="images/logo.png" alt="Kasi Tech Hub logo" class="logo-img" width="44" height="44">
+        <span class="logo-text">
+          <span class="logo-name">Kasi Tech Hub</span>
+          <span class="logo-tag">Skills That Open Doors</span>
+        </span>
+      </a>
+      <nav class="nav-menu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#programmes">Programmes</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#why-us">Why Choose Us</a>
+        <a href="registration.html">Registration</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <a href="registration.html" class="btn btn-primary btn-sm nav-cta">Register Now</a>
+      <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#programmes">Programmes</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#why-us">Why Choose Us</a>
+      <a href="registration.html">Registration</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="registration.html" class="btn btn-primary">Register Now</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Contact</span>
+        </div>
+        <h1>Contact Kasi Tech Hub</h1>
+        <p>We are here to help with training, services, and technology support.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <h3>Kasi Tech Hub</h3>
+            <p>KASI TECH HUB (PTY) LTD · South Africa</p>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon" aria-hidden="true">📍</div>
+              <div>
+                <strong>Address</strong>
+                <span>1609 10th Street, Refilwe, Cullinan, Gauteng, South Africa</span>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon" aria-hidden="true">📞</div>
+              <div>
+                <strong>Phone / WhatsApp</strong>
+                <a href="tel:+27799491794">079 949 1794</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon" aria-hidden="true">📧</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:thabangseloane97@gmail.com">thabangseloane97@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="tel:+27799491794" class="btn btn-primary btn-sm">Call Us</a>
+              <a href="https://wa.me/27799491794?text=Hello%20Kasi%20Tech%20Hub.%20I%20would%20like%20more%20information%20about%20your%20training%20programmes." class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <a href="mailto:thabangseloane97@gmail.com" class="btn btn-outline btn-sm">Send Email</a>
+            </div>
+
+            <div class="hours-box">
+              <h4>Operating Hours</h4>
+              <p>Monday – Friday: 08:00 – 17:00</p>
+              <p>Saturday: 09:00 – 13:00</p>
+              <p>Sunday &amp; Public Holidays: Closed</p>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <h3 style="margin-bottom:1.25rem;">Send us a message</h3>
+            <div id="contact-success" class="alert alert-success" role="status" aria-live="polite"></div>
+            <div id="contact-error" class="alert alert-error" role="alert" aria-live="assertive"></div>
+
+            <form id="contact-form" novalidate>
+              <div class="hp-field" aria-hidden="true">
+                <label for="contact_website">Website</label>
+                <input type="text" id="contact_website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="contact_name">Name <span class="req">*</span></label>
+                  <input type="text" id="contact_name" name="name" required autocomplete="name" placeholder="Your full name">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-row cols-2">
+                  <div class="form-group">
+                    <label for="contact_email">Email <span class="req">*</span></label>
+                    <input type="email" id="contact_email" name="email" required autocomplete="email" placeholder="name@example.com">
+                    <span class="field-error"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="contact_phone">Phone number</label>
+                    <input type="tel" id="contact_phone" name="phone" autocomplete="tel" placeholder="079 000 0000">
+                    <span class="field-error"></span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="contact_subject">Subject <span class="req">*</span></label>
+                  <input type="text" id="contact_subject" name="subject" required placeholder="How can we help?">
+                  <span class="field-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contact_message">Message <span class="req">*</span></label>
+                  <textarea id="contact_message" name="message" required placeholder="Write your message here…"></textarea>
+                  <span class="field-error"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding:1.5rem 0;">
+        <p>© <span data-year>2026</span> Kasi Tech Hub (PTY) LTD. All rights reserved.</p>
+        <p class="footer-credit">Designed and managed by Thabang Seloane.</p>
+        <p><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="index.html">Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float"
+     href="https://wa.me/27799491794?text=Hello%20Kasi%20Tech%20Hub.%20I%20would%20like%20more%20information%20about%20your%20training%20programmes."
+     target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/email-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

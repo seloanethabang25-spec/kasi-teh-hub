@@ -359,19 +359,24 @@ p:last-child { margin-bottom: 0; }
   gap: 0.65rem;
   text-decoration: none;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .logo-img {
-  width: 500px;
-  height:  500px;
+  width: 44px;
+  height: 44px;
+  max-width: 44px;
+  max-height: 44px;
   border-radius: 10px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .logo-text {
   display: flex;
   flex-direction: column;
   line-height: 1.15;
+  min-width: 0;
 }
 
 .logo-name {
@@ -379,6 +384,9 @@ p:last-child { margin-bottom: 0; }
   font-size: 1.05rem;
   color: var(--navy);
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .logo-tag {
@@ -386,6 +394,9 @@ p:last-child { margin-bottom: 0; }
   color: var(--turquoise-dark);
   font-weight: 600;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-menu {
@@ -424,6 +435,7 @@ p:last-child { margin-bottom: 0; }
   border-radius: 8px;
   background: var(--gray-100);
   transition: background var(--transition);
+  flex-shrink: 0;
 }
 
 .hamburger:hover {
@@ -1756,6 +1768,43 @@ body.nav-open {
 }
 
 /* ---------- Responsive breakpoints ---------- */
+
+/* Mobile (default up to 639px handled by base styles above).
+   Explicit mobile-range rules for header/logo/nav layering. */
+@media (max-width: 899px) {
+  .site-header {
+    z-index: 99;
+  }
+
+  .nav-wrapper {
+    z-index: 99;
+  }
+
+  .hamburger {
+    z-index: 99;
+  }
+
+  .mobile-nav {
+    z-index: 99;
+  }
+
+  .logo-img {
+    width: 38px;
+    height: 38px;
+    max-width: 38px;
+    max-height: 38px;
+  }
+
+  .logo-name {
+    font-size: 0.95rem;
+    max-width: 46vw;
+  }
+
+  .logo-tag {
+    max-width: 46vw;
+  }
+}
+
 @media (min-width: 640px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1797,6 +1846,22 @@ body.nav-open {
 
   .hamburger {
     display: none;
+  }
+
+  .logo-img {
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+  }
+
+  .logo-name {
+    font-size: 1.05rem;
+    max-width: none;
+  }
+
+  .logo-tag {
+    max-width: none;
   }
 
   .hero-grid {

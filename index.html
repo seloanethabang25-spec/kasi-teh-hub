@@ -7,12 +7,6 @@
   <meta name="keywords" content="Kasi Tech Hub, digital skills, computer training, Microsoft Office, CV writing, job readiness, township tech, Cullinan, Refilwe, Gauteng, South Africa">
   <meta name="author" content="KASI TECH HUB (PTY) LTD">
   <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="styles.css">
- <link rel="stylesheet" href="styles.css">
-    <script src="email-config.js" defer></script>
-  <script src="main.js" defer></script>
-  <script src="registration.js" defer></script>
 
   <link rel="canonical" href="https://thabang97seloane.github.io/KASI-TECH-HUB/">
 
@@ -36,6 +30,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Critical visibility fallback: prevents blank sections if animation JS fails -->
+  <style>
+    html, body { min-height: 100%; }
+    body, .site-header, main, section, footer,
+    .container, .hero-content, .hero-image-wrap,
+    .fade-up, .card, .benefit-item, .testimonial-card,
+    .form-card, .contact-info-card, .cta-banner,
+    .cta-banner h2, .cta-banner p, .cta-banner .btn {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    .fade-up, .hero-image-wrap, .card, .benefit-item,
+    .testimonial-card, .form-card, .contact-info-card {
+      transform: none !important;
+    }
+
+    /* Ensure the first screen is never covered by an accidental loader/overlay */
+    .page-loader, .preloader, #preloader, .loading-overlay {
+      display: none !important;
+    }
+  </style>
 
 </head>
 <body>
@@ -953,5 +970,31 @@
   <script src="js/main.js"></script>
   <script src="js/registration.js"></script>
   <script src="js/contact.js"></script>
+
+  <!-- Runtime fallback for browsers where reveal animations do not initialise -->
+  <script>
+    (function () {
+      function revealPage() {
+        document.querySelectorAll('.fade-up, [data-animate], .hero-content, .hero-image-wrap')
+          .forEach(function (element) {
+            element.style.opacity = '1';
+            element.style.visibility = 'visible';
+            element.style.transform = 'none';
+            element.classList.add('is-visible', 'visible', 'show');
+          });
+
+        document.querySelectorAll('.page-loader, .preloader, #preloader, .loading-overlay')
+          .forEach(function (element) { element.style.display = 'none'; });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', revealPage);
+      } else {
+        revealPage();
+      }
+      window.addEventListener('load', revealPage);
+      window.setTimeout(revealPage, 1200);
+    }());
+  </script>
 </body>
 </html>

@@ -202,200 +202,18 @@
       </div>
     </section>
 
-    <!-- ========== REGISTRATION ========== -->
+    <!-- ========== REGISTRATION TEASER ========== -->
     <section class="section" id="registration">
       <div class="container">
         <div class="text-center fade-up">
           <span class="section-label">Join Us</span>
           <h2 class="section-title">Register for Training</h2>
-          <p class="section-desc">Complete the form below to register. We will contact you with schedule, venue, and next steps.</p>
-        </div>
-
-        <div class="form-card fade-up" style="max-width:820px;margin:0 auto;">
-          <div id="reg-success" class="alert alert-success" role="status" aria-live="polite"></div>
-          <div id="reg-error" class="alert alert-error" role="alert" aria-live="assertive"></div>
-
-          <form id="registration-form" novalidate>
-            <!-- Honeypot -->
-            <div class="hp-field" aria-hidden="true">
-              <label for="website">Website</label>
-              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div class="form-grid">
-              <div class="form-row cols-2">
-                <div class="form-group">
-                  <label for="first_name">Full name <span class="req">*</span></label>
-                  <input type="text" id="first_name" name="first_name" required autocomplete="given-name" placeholder="e.g. Thabo">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="surname">Surname <span class="req">*</span></label>
-                  <input type="text" id="surname" name="surname" required autocomplete="family-name" placeholder="e.g. Mokoena">
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-row cols-2">
-                <div class="form-group">
-                  <label for="email">Email address <span class="req">*</span></label>
-                  <input type="email" id="email" name="email" required autocomplete="email" placeholder="name@example.com">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="mobile_number">Mobile number <span class="req">*</span></label>
-                  <input type="tel" id="mobile_number" name="mobile_number" required autocomplete="tel" placeholder="079 000 0000">
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-row cols-2">
-                <div class="form-group">
-                  <label for="whatsapp_number">WhatsApp number <span class="req">*</span></label>
-                  <input type="tel" id="whatsapp_number" name="whatsapp_number" required placeholder="079 000 0000">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="age_group">Age group <span class="req">*</span></label>
-                  <select id="age_group" name="age_group" required>
-                    <option value="">Select age group</option>
-                    <option value="Under 18">Under 18</option>
-                    <option value="18–24">18–24</option>
-                    <option value="25–34">25–34</option>
-                    <option value="35–44">35–44</option>
-                    <option value="45 and above">45 and above</option>
-                  </select>
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-row cols-2">
-                <div class="form-group">
-                  <label for="gender">Gender <span style="font-weight:400;color:var(--gray-500)">(optional)</span></label>
-                  <select id="gender" name="gender">
-                    <option value="">Prefer not to say</option>
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="residential_area">Residential area <span class="req">*</span></label>
-                  <input type="text" id="residential_area" name="residential_area" required placeholder="e.g. Refilwe, Cullinan">
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-row cols-2">
-                <div class="form-group">
-                  <label for="highest_qualification">Highest qualification</label>
-                  <input type="text" id="highest_qualification" name="highest_qualification" placeholder="e.g. Matric, NQF Level 4">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="employment_status">Employment status <span class="req">*</span></label>
-                  <select id="employment_status" name="employment_status" required>
-                    <option value="">Select status</option>
-                    <option value="Student">Student</option>
-                    <option value="Employed">Employed</option>
-                    <option value="Unemployed">Unemployed</option>
-                    <option value="Self-employed">Self-employed</option>
-                    <option value="Business owner">Business owner</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="selected_programme">Selected programme <span class="req">*</span></label>
-                <select id="selected_programme" name="selected_programme" required>
-                  <option value="">Choose a programme</option>
-                  <option value="Computer Basics">Computer Basics</option>
-                  <option value="Microsoft Word">Microsoft Word</option>
-                  <option value="Microsoft Excel">Microsoft Excel</option>
-                  <option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
-                  <option value="Internet and Email Skills">Internet and Email Skills</option>
-                  <option value="Job Readiness">Job Readiness</option>
-                  <option value="Website Development">Website Development</option>
-                  <option value="IT Support Basics">IT Support Basics</option>
-                </select>
-                <span class="field-error"></span>
-              </div>
-
-              <div class="form-row cols-3">
-                <div class="form-group">
-                  <label for="learning_method">Preferred learning method <span class="req">*</span></label>
-                  <select id="learning_method" name="learning_method" required>
-                    <option value="">Select method</option>
-                    <option value="In-person training">In-person training</option>
-                    <option value="Online training">Online training</option>
-                    <option value="Hybrid training">Hybrid training</option>
-                  </select>
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="preferred_date">Preferred training date</label>
-                  <input type="date" id="preferred_date" name="preferred_date">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="preferred_time">Preferred training time</label>
-                  <select id="preferred_time" name="preferred_time">
-                    <option value="">Select time</option>
-                    <option value="Morning (08:00–12:00)">Morning (08:00–12:00)</option>
-                    <option value="Afternoon (12:00–16:00)">Afternoon (12:00–16:00)</option>
-                    <option value="Evening (16:00–19:00)">Evening (16:00–19:00)</option>
-                    <option value="Flexible / Any">Flexible / Any</option>
-                  </select>
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="experience_level">Computer experience level <span class="req">*</span></label>
-                <select id="experience_level" name="experience_level" required>
-                  <option value="">Select level</option>
-                  <option value="Complete beginner">Complete beginner</option>
-                  <option value="Basic knowledge">Basic knowledge</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Advanced">Advanced</option>
-                </select>
-                <span class="field-error"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="accessibility_requirements">Accessibility or disability support requirements</label>
-                <textarea id="accessibility_requirements" name="accessibility_requirements" placeholder="Tell us how we can support you (optional)"></textarea>
-                <span class="field-error"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="additional_message">Message or additional information</label>
-                <textarea id="additional_message" name="additional_message" placeholder="Any questions or extra details?"></textarea>
-                <span class="field-error"></span>
-              </div>
-
-              <div class="checkbox-group">
-                <input type="checkbox" id="consent" name="consent" required>
-                <div>
-                  <label for="consent">I consent to Kasi Tech Hub collecting and using my information to process my registration and communicate with me about training and services. <span class="req">*</span></label>
-                  <span class="field-error"></span>
-                </div>
-              </div>
-
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Registration</button>
-              </div>
-              <p style="font-size:0.8rem;color:var(--gray-500);text-align:center;margin-top:0.75rem;">
-                Your information is protected under POPIA. See our <a href="privacy.html">Privacy Policy</a>.
-              </p>
-            </div>
-          </form>
+          <p class="section-desc">Ready to get started? Complete our registration form and we’ll contact you with schedule, venue, and next steps.</p>
+          <a href="registration.html" class="btn btn-primary btn-lg">Register for Training</a>
         </div>
       </div>
     </section>
+
 
     <!-- ========== TESTIMONIALS ========== -->
     <section class="section section-alt" id="testimonials">
@@ -510,97 +328,49 @@
       </div>
     </section>
 
-    <!-- ========== CONTACT ========== -->
+    <!-- ========== CONTACT TEASER ========== -->
     <section class="section section-alt" id="contact">
       <div class="container">
         <div class="text-center fade-up">
           <span class="section-label">Get in Touch</span>
           <h2 class="section-title">Contact Kasi Tech Hub</h2>
-          <p class="section-desc">We are based in Refilwe, Cullinan, Gauteng. Reach out by phone, WhatsApp, email, or the form below.</p>
+          <p class="section-desc">We are based in Refilwe, Cullinan, Gauteng. Reach out by phone, WhatsApp, email, or send us a message.</p>
         </div>
 
-        <div class="contact-grid">
-          <div class="contact-info-card fade-up">
-            <h3>Kasi Tech Hub</h3>
-            <p>KASI TECH HUB (PTY) LTD · South Africa</p>
-
-            <div class="contact-detail">
-              <div class="contact-detail-icon" aria-hidden="true">📍</div>
-              <div>
-                <strong>Address</strong>
-                <span>1609 10th Street, Refilwe, Cullinan, Gauteng, South Africa</span>
-              </div>
+        <div class="contact-info-card fade-up" style="max-width:640px;margin:0 auto;">
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📍</div>
+            <div>
+              <strong>Address</strong>
+              <span>1609 10th Street, Refilwe, Cullinan, Gauteng, South Africa</span>
             </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon" aria-hidden="true">📞</div>
-              <div>
-                <strong>Phone / WhatsApp</strong>
-                <a href="tel:+27799491794">079 949 1794</a>
-              </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📞</div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              <a href="tel:+27799491794">079 949 1794</a>
             </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon" aria-hidden="true">📧</div>
-              <div>
-                <strong>Email</strong>
-                <a href="mailto:thabangseloane97@gmail.com">thabangseloane97@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="contact-actions">
-              <a href="tel:+27799491794" class="btn btn-primary btn-sm">Call Us</a>
-              <a href="https://wa.me/27799491794?text=Hello%20Kasi%20Tech%20Hub.%20I%20would%20like%20more%20information%20about%20your%20training%20programmes." class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
-              <a href="mailto:thabangseloane97@gmail.com" class="btn btn-outline btn-sm">Send Email</a>
-            </div>
-
-            <div class="hours-box">
-              <h4>Operating Hours</h4>
-              <p>Monday – Friday: 08:00 – 17:00</p>
-              <p>Saturday: 09:00 – 13:00</p>
-              <p>Sunday &amp; Public Holidays: Closed</p>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📧</div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:thabangseloane97@gmail.com">thabangseloane97@gmail.com</a>
             </div>
           </div>
 
-          <div class="form-card fade-up">
-            <h3 style="margin-bottom:1.25rem;">Send us a message</h3>
-            <div id="contact-success" class="alert alert-success" role="status" aria-live="polite"></div>
-            <div id="contact-error" class="alert alert-error" role="alert" aria-live="assertive"></div>
+          <div class="contact-actions">
+            <a href="tel:+27799491794" class="btn btn-primary btn-sm">Call Us</a>
+            <a href="https://wa.me/27799491794?text=Hello%20Kasi%20Tech%20Hub.%20I%20would%20like%20more%20information%20about%20your%20training%20programmes." class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+            <a href="contact.html" class="btn btn-outline btn-sm">Send Us a Message</a>
+          </div>
 
-            <form id="contact-form" novalidate>
-              <div class="hp-field" aria-hidden="true">
-                <label for="contact_website">Website</label>
-                <input type="text" id="contact_website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="contact_name">Name <span class="req">*</span></label>
-                  <input type="text" id="contact_name" name="name" required autocomplete="name" placeholder="Your full name">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-row cols-2">
-                  <div class="form-group">
-                    <label for="contact_email">Email <span class="req">*</span></label>
-                    <input type="email" id="contact_email" name="email" required autocomplete="email" placeholder="name@example.com">
-                    <span class="field-error"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="contact_phone">Phone number</label>
-                    <input type="tel" id="contact_phone" name="phone" autocomplete="tel" placeholder="079 000 0000">
-                    <span class="field-error"></span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="contact_subject">Subject <span class="req">*</span></label>
-                  <input type="text" id="contact_subject" name="subject" required placeholder="How can we help?">
-                  <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="contact_message">Message <span class="req">*</span></label>
-                  <textarea id="contact_message" name="message" required placeholder="Write your message here…"></textarea>
-                  <span class="field-error"></span>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
-              </div>
-            </form>
+          <div class="hours-box">
+            <h4>Operating Hours</h4>
+            <p>Monday – Friday: 08:00 – 17:00</p>
+            <p>Saturday: 09:00 – 13:00</p>
+            <p>Sunday &amp; Public Holidays: Closed</p>
           </div>
         </div>
       </div>
@@ -611,7 +381,7 @@
       <div class="container">
         <h2>Ready to build your digital future?</h2>
         <p>Register today and take the first step toward better skills, better opportunities, and digital confidence.</p>
-        <a href="#registration" class="btn btn-secondary btn-lg">Register Now</a>
+        <a href="registration.html" class="btn btn-secondary btn-lg">Register Now</a>
       </div>
     </section>
   </main>
@@ -685,11 +455,6 @@
   </a>
 
   <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="email-config.js"></script>
   <script src="main.js"></script>
-  <script src="registration.js"></script>
-  <script src="contact.js"></script>
 </body>
 </html>
-

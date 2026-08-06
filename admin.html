@@ -1,166 +1,157 @@
 <!DOCTYPE html>
+
 <html lang="en-ZA">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Secure administrator dashboard for Kasi Tech Hub registrations.">
-  <title>Admin Dashboard | Kasi Tech Hub</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="styles.css">
-  <script src="email-config.js" defer></script>
-  <script src="main.js" defer></script>
-  <script src="registration.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
-</head>
+
+
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script defer="" src="email-config.js"></script>
+<script defer="" src="main.js"></script>
+<script defer="" src="registration.js"></script>
+<title>Admin Dashboard | Kasi Tech Hub</title><meta content="Private administrator dashboard for Kasi Tech Hub." name="description"/><meta content="Kasi Tech Hub (PTY) LTD" name="author"/><meta content="noindex, nofollow, noarchive" name="robots"/><meta content="noindex, nofollow, noarchive" name="googlebot"/><meta content="noindex, nofollow, noarchive" name="bingbot"/><meta content="#0b4f9c" name="theme-color"/><meta content="ZA-GP" name="geo.region"/><meta content="Refilwe, Cullinan" name="geo.placename"/><meta content="-25.6700, 28.5200" name="ICBM"/></head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="logo" aria-label="Kasi Tech Hub Home">
-        <img src="images/logo.png" alt="Kasi Tech Hub logo" class="logo-img" width="44" height="44">
-        <span class="logo-text">
-          <span class="logo-name">Kasi Tech Hub</span>
-          <span class="logo-tag">Admin Dashboard</span>
-        </span>
-      </a>
-      <div style="display:flex;align-items:center;gap:0.75rem;">
-        <a href="index.html" class="btn btn-secondary btn-sm">← Website</a>
-        <button type="button" id="logout-btn" class="btn btn-outline-dark btn-sm" style="display:none;">Log out</button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- Login -->
-    <section class="admin-login" id="admin-login">
-      <div class="login-card">
-        <div style="text-align:center;margin-bottom:0.5rem;">
-          <img src="images/logo.png" alt="" width="56" height="56" style="margin:0 auto 0.75rem;border-radius:12px;">
-        </div>
-        <h1>Admin Login</h1>
-        <p>Enter the administrator password to manage registrations. This page is not publicly listed.</p>
-        <div id="login-error" class="alert alert-error" role="alert"></div>
-        <form id="login-form" autocomplete="off">
-          <div class="form-group" style="margin-bottom:1.25rem;">
-            <label for="admin_password">Password</label>
-            <input type="password" id="admin_password" name="password" required placeholder="Admin password" autocomplete="current-password">
-          </div>
-          <button type="submit" class="btn btn-primary btn-block btn-lg">Sign in</button>
-        </form>
-        <p style="font-size:0.78rem;color:var(--gray-500);margin-top:1.25rem;text-align:center;">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+<div class="container nav-wrapper">
+<a aria-label="Kasi Tech Hub Home" class="logo" href="index.html">
+<img alt="Kasi Tech Hub logo" class="logo-img" decoding="async" height="44" loading="lazy" src="images/logo.png" width="44"/>
+<span class="logo-text">
+<span class="logo-name">Kasi Tech Hub</span>
+<span class="logo-tag">Admin Dashboard</span>
+</span>
+</a>
+<div style="display:flex;align-items:center;gap:0.75rem;">
+<a class="btn btn-secondary btn-sm" href="index.html">← Website</a>
+<button class="btn btn-outline-dark btn-sm" id="logout-btn" style="display:none;" type="button">Log out</button>
+</div>
+</div>
+</header>
+<main id="main">
+<!-- Login -->
+<section class="admin-login" id="admin-login">
+<div class="login-card">
+<div style="text-align:center;margin-bottom:0.5rem;">
+<img alt="" decoding="async" height="56" loading="lazy" src="images/logo.png" style="margin:0 auto 0.75rem;border-radius:12px;" width="56"/>
+</div>
+<h1>Admin Login</h1>
+<p>Enter the administrator password to manage registrations. This page is not publicly listed.</p>
+<div class="alert alert-error" id="login-error" role="alert"></div>
+<form autocomplete="off" id="login-form">
+<div class="form-group" style="margin-bottom:1.25rem;">
+<label for="admin_password">Password</label>
+<input autocomplete="current-password" id="admin_password" name="password" placeholder="Admin password" required="" type="password"/>
+</div>
+<button class="btn btn-primary btn-block btn-lg" type="submit">Sign in</button>
+</form>
+<p style="font-size:0.78rem;color:var(--gray-500);margin-top:1.25rem;text-align:center;">
           Change the default password in <code>js/email-config.js</code> before going live.
           For production, migrate to Supabase Auth or a secure backend.
         </p>
-      </div>
-    </section>
-
-    <!-- Dashboard -->
-    <section class="admin-panel" id="admin-panel">
-      <div class="container">
-        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem;">
-          <div>
-            <h1 style="font-size:1.6rem;margin-bottom:0.25rem;">Registrations</h1>
-            <p style="margin:0;color:var(--gray-500);font-size:0.95rem;">View, filter, update, and export training registrations.</p>
-          </div>
-          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-            <button type="button" class="btn btn-primary btn-sm" id="export-csv-btn">Export CSV</button>
-            <button type="button" class="btn btn-secondary btn-sm" id="refresh-btn">Refresh</button>
-          </div>
-        </div>
-
-        <div class="admin-stats" id="admin-stats">
-          <div class="admin-stat-card"><strong id="stat-total">0</strong><span>Total</span></div>
-          <div class="admin-stat-card"><strong id="stat-new">0</strong><span>New</span></div>
-          <div class="admin-stat-card"><strong id="stat-contacted">0</strong><span>Contacted</span></div>
-          <div class="admin-stat-card"><strong id="stat-accepted">0</strong><span>Accepted</span></div>
-        </div>
-
-        <div class="admin-toolbar">
-          <input type="search" id="search-input" placeholder="Search name, email, phone, reference…" aria-label="Search registrations">
-          <select id="filter-programme" aria-label="Filter by programme">
-            <option value="">All programmes</option>
-            <option value="Computer Basics">Computer Basics</option>
-            <option value="Microsoft Word">Microsoft Word</option>
-            <option value="Microsoft Excel">Microsoft Excel</option>
-            <option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
-            <option value="Internet and Email Skills">Internet and Email Skills</option>
-            <option value="Job Readiness">Job Readiness</option>
-            <option value="Website Development">Website Development</option>
-            <option value="IT Support Basics">IT Support Basics</option>
-          </select>
-          <select id="filter-status" aria-label="Filter by status">
-            <option value="">All statuses</option>
-            <option value="New">New</option>
-            <option value="Contacted">Contacted</option>
-            <option value="Accepted">Accepted</option>
-            <option value="Completed">Completed</option>
-            <option value="Cancelled">Cancelled</option>
-          </select>
-          <input type="date" id="filter-date" aria-label="Filter by registration date">
-        </div>
-
-        <div class="table-wrap">
-          <table class="admin-table" id="regs-table">
-            <thead>
-              <tr>
-                <th>Reference</th>
-                <th>Name</th>
-                <th>Programme</th>
-                <th>Contact</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="regs-tbody">
-            </tbody>
-          </table>
-          <div class="empty-state" id="empty-state" style="display:none;">
-            <strong>No registrations found</strong>
-            <p>Registrations submitted on this browser will appear here. For multi-device access, connect Supabase (see README).</p>
-          </div>
-        </div>
-
-        <div style="margin-top:2rem;" class="form-card">
-          <h3 style="margin-bottom:0.75rem;">Registrations by programme</h3>
-          <div id="programme-breakdown" style="display:grid;gap:0.5rem;"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Detail modal -->
-  <div class="modal-overlay" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modal-title">Registration details</h3>
-        <button type="button" class="modal-close" id="modal-close" aria-label="Close">×</button>
-      </div>
-      <div class="modal-body" id="modal-body"></div>
-      <div class="modal-footer">
-        <label for="status-select" class="sr-only">Update status</label>
-        <select id="status-select" style="padding:0.55rem 0.9rem;border-radius:10px;border:1.5px solid var(--gray-300);">
-          <option value="New">New</option>
-          <option value="Contacted">Contacted</option>
-          <option value="Accepted">Accepted</option>
-          <option value="Completed">Completed</option>
-          <option value="Cancelled">Cancelled</option>
-        </select>
-        <button type="button" class="btn btn-primary btn-sm" id="save-status-btn">Update status</button>
-        <button type="button" class="btn btn-outline-dark btn-sm" id="delete-reg-btn" style="color:#b91c1c;border-color:#fca5a5;">Delete</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/email-config.js"></script>
-  <script src="js/main.js"></script>
-  <script>
+</div>
+</section>
+<!-- Dashboard -->
+<section class="admin-panel" id="admin-panel">
+<div class="container">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+<div>
+<h1 style="font-size:1.6rem;margin-bottom:0.25rem;">Registrations</h1>
+<p style="margin:0;color:var(--gray-500);font-size:0.95rem;">View, filter, update, and export training registrations.</p>
+</div>
+<div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+<button class="btn btn-primary btn-sm" id="export-csv-btn" type="button">Export CSV</button>
+<button class="btn btn-secondary btn-sm" id="refresh-btn" type="button">Refresh</button>
+</div>
+</div>
+<div class="admin-stats" id="admin-stats">
+<div class="admin-stat-card"><strong id="stat-total">0</strong><span>Total</span></div>
+<div class="admin-stat-card"><strong id="stat-new">0</strong><span>New</span></div>
+<div class="admin-stat-card"><strong id="stat-contacted">0</strong><span>Contacted</span></div>
+<div class="admin-stat-card"><strong id="stat-accepted">0</strong><span>Accepted</span></div>
+</div>
+<div class="admin-toolbar">
+<input aria-label="Search registrations" id="search-input" placeholder="Search name, email, phone, reference…" type="search"/>
+<select aria-label="Filter by programme" id="filter-programme">
+<option value="">All programmes</option>
+<option value="Computer Basics">Computer Basics</option>
+<option value="Microsoft Word">Microsoft Word</option>
+<option value="Microsoft Excel">Microsoft Excel</option>
+<option value="Microsoft PowerPoint">Microsoft PowerPoint</option>
+<option value="Internet and Email Skills">Internet and Email Skills</option>
+<option value="Job Readiness">Job Readiness</option>
+<option value="Website Development">Website Development</option>
+<option value="IT Support Basics">IT Support Basics</option>
+</select>
+<select aria-label="Filter by status" id="filter-status">
+<option value="">All statuses</option>
+<option value="New">New</option>
+<option value="Contacted">Contacted</option>
+<option value="Accepted">Accepted</option>
+<option value="Completed">Completed</option>
+<option value="Cancelled">Cancelled</option>
+</select>
+<input aria-label="Filter by registration date" id="filter-date" type="date"/>
+</div>
+<div class="table-wrap">
+<table class="admin-table" id="regs-table">
+<thead>
+<tr>
+<th>Reference</th>
+<th>Name</th>
+<th>Programme</th>
+<th>Contact</th>
+<th>Date</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="regs-tbody">
+</tbody>
+</table>
+<div class="empty-state" id="empty-state" style="display:none;">
+<strong>No registrations found</strong>
+<p>Registrations submitted on this browser will appear here. For multi-device access, connect Supabase (see README).</p>
+</div>
+</div>
+<div class="form-card" style="margin-top:2rem;">
+<h3 style="margin-bottom:0.75rem;">Registrations by programme</h3>
+<div id="programme-breakdown" style="display:grid;gap:0.5rem;"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Detail modal -->
+<div aria-labelledby="modal-title" aria-modal="true" class="modal-overlay" id="detail-modal" role="dialog">
+<div class="modal">
+<div class="modal-header">
+<h3 id="modal-title">Registration details</h3>
+<button aria-label="Close" class="modal-close" id="modal-close" type="button">×</button>
+</div>
+<div class="modal-body" id="modal-body"></div>
+<div class="modal-footer">
+<label class="sr-only" for="status-select">Update status</label>
+<select id="status-select" style="padding:0.55rem 0.9rem;border-radius:10px;border:1.5px solid var(--gray-300);">
+<option value="New">New</option>
+<option value="Contacted">Contacted</option>
+<option value="Accepted">Accepted</option>
+<option value="Completed">Completed</option>
+<option value="Cancelled">Cancelled</option>
+</select>
+<button class="btn btn-primary btn-sm" id="save-status-btn" type="button">Update status</button>
+<button class="btn btn-outline-dark btn-sm" id="delete-reg-btn" style="color:#b91c1c;border-color:#fca5a5;" type="button">Delete</button>
+</div>
+</div>
+</div>
+<script src="js/email-config.js"></script>
+<script src="js/main.js"></script>
+<script>
   (function () {
     "use strict";
 

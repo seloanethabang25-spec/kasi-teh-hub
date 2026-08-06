@@ -1,0 +1,31 @@
+KASI TECH HUB SEO DEPLOYMENT CHECKLIST
+
+Domain used throughout:
+https://kasitechhub.co.za
+
+Files updated:
+- index.html
+- about.html
+- programmes.html
+- services.html
+- why-us.html
+- registration.html
+- contact.html
+- admin.html (kept noindex)
+- robots.txt
+- sitemap.xml
+
+Before upload:
+1. Copy your existing CSS, JavaScript, images, favicon.ico, logo.png and hero-image.jpg into the same website folders.
+2. Upload these updated HTML files to the domain root.
+3. Confirm every canonical URL opens on https://kasitechhub.co.za.
+4. Confirm https://kasitechhub.co.za/robots.txt and https://kasitechhub.co.za/sitemap.xml open publicly.
+5. Submit sitemap.xml in Google Search Console and Bing Webmaster Tools.
+6. Request indexing for the home, programmes, services, registration and contact pages.
+7. Keep admin.html protected and excluded from search.
+8. Replace any inaccurate statistics or claims before publishing.
+9. Add real Facebook, LinkedIn, Instagram and other profile URLs to structured data when available.
+10. Use HTTPS and redirect the old GitHub Pages URLs to the main domain where possible.
+
+Note:
+SEO metadata improves how pages are understood and displayed, but rankings also depend on useful content, speed, backlinks, local reviews, mobile usability and ongoing updates.
